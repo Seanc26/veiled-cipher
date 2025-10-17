@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 
 const Admin = () => {
@@ -73,14 +72,14 @@ const Admin = () => {
       <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Admin Panel</h1>
         
-        <Card>
-          <CardHeader>
-            <CardTitle>Daily Email Test</CardTitle>
-            <CardDescription>
+        <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
+          <div className="flex flex-col space-y-1.5 p-6">
+            <h3 className="text-2xl font-semibold leading-none tracking-tight">Daily Email Test</h3>
+            <p className="text-sm text-muted-foreground">
               Send a test email to all subscribers immediately
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
+            </p>
+          </div>
+          <div className="p-6 pt-0">
             <Button 
               onClick={handleSendTestEmail}
               disabled={sending}
@@ -88,8 +87,8 @@ const Admin = () => {
             >
               {sending ? "Sending..." : "Send Test Email"}
             </Button>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   );
